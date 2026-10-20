@@ -1,4 +1,128 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head><meta charset="UTF-8"><title>КУКАРЕКУ — ЛОББИ 2</title></head>
-<body><h1>Полная страница загружена</h1></body></html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>КУКАРЕКУ — покеррум, где петух решает</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/unbounded@5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/unbounded@5/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/unbounded@5/900.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/rubik@5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/rubik@5/500.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/rubik@5/700.css">
+<style>
+:root{--bg:#0a0616;--panel:#150c26;--panel2:#1d1136;--line:rgba(255,255,255,.09);--pink:#ff2e88;--cyan:#25e7ff;--lime:#b8ff3d;--gold:#ffc93c;--violet:#8a5cff;--text:#f4eefc;--muted:#a79fc0;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(1200px 600px at 80% -10%,rgba(138,92,255,.18),transparent 60%),radial-gradient(900px 500px at 10% 110%,rgba(255,46,136,.14),transparent 60%),var(--bg);color:var(--text);font-family:'Rubik',system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
+::selection{background:var(--pink);color:#08040f}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:12px 20px;background:rgba(10,6,22,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Unbounded';font-weight:900;font-size:18px;letter-spacing:1px;cursor:pointer;color:#fff;text-shadow:2px 0 var(--pink),-2px 0 var(--cyan);line-height:1}
+.logo span{color:var(--pink)}
+.logo small{display:block;font-family:'Rubik';font-weight:500;font-size:9px;letter-spacing:3px;color:var(--muted);margin-top:4px;text-shadow:none}
+.hero{padding:52px 20px 6px;text-align:center}
+.glitch-title{font-family:'Unbounded';font-weight:900;font-size:clamp(26px,5vw,60px);letter-spacing:2px;position:relative;color:#fff}
+.glitch-sub{margin-top:14px;font-size:11px;letter-spacing:5px;color:var(--muted);font-weight:700}
+.hero-note{display:inline-block;margin-top:18px;padding:8px 16px;border:1px dashed var(--pink);border-radius:999px;color:var(--pink);font-size:12px;font-weight:500}
+.rooms{max-width:1460px;margin:0 auto;padding:34px 20px 10px;display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1120px){.rooms{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.rooms{grid-template-columns:1fr}}
+.room{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;position:relative;transition:box-shadow .3s,border-color .3s}
+.room:hover{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 24px 60px -22px var(--gold)}
+.room-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000}
+.room-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.room:hover .room-media img{transform:scale(1.06) rotate(.4deg)}
+.media-scan{position:absolute;inset:0;pointer-events:none;opacity:.35;background:repeating-linear-gradient(0deg,rgba(0,0,0,.3) 0 2px,transparent 2px 4px)}
+.ver{position:absolute;top:10px;left:10px;font-family:'Unbounded';font-weight:700;font-size:10px;letter-spacing:1px;padding:4px 9px;border-radius:8px;background:rgba(0,0,0,.6);color:var(--gold);border:1px solid var(--gold);z-index:2}
+.room-body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.room-body h3{font-family:'Unbounded';font-weight:700;font-size:14px;letter-spacing:.5px;transition:color .25s}
+.room:hover h3{color:var(--gold)}
+.tag{font-size:12px;color:var(--muted);line-height:1.5;min-height:36px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:6px 9px;display:flex;flex-direction:column;gap:2px}
+.stat small{font-size:8px;letter-spacing:2px;color:var(--muted);font-weight:700}
+.stat b{font-size:12px;font-weight:700}
+.enter{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:12px;font-family:'Unbounded';font-weight:700;font-size:11px;letter-spacing:1.5px;color:#08040f;text-decoration:none;background:var(--gold);box-shadow:0 5px 0 rgba(0,0,0,.4);transition:.2s}
+.enter:hover{filter:brightness(1.12);transform:translateY(-2px);box-shadow:0 7px 0 rgba(0,0,0,.4)}
+.enter:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.4)}
+footer{margin-top:44px;border-top:1px solid var(--line);padding:26px 20px 46px;text-align:center;color:var(--muted);font-size:12px;line-height:2}
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="logo">КУКАРЕКУ <small>ПОКЕРРУМ, ГДЕ ПЕТУХ РЕШАЕТ</small></div>
+</header>
+<main>
+<section class="hero">
+<h1 class="glitch-title">ВЫБЕРИ СВОЙ СТОЛ</h1>
+<p class="glitch-sub">СТОЛ СЛОМАН · КАРТЫ ЖИВЫЕ · ДИЛЕР ДЕРЖИТСЯ</p>
+<p class="hero-note">Регистрация закрыта. Ты уже здесь.</p>
+</section>
+<section class="rooms" id="rooms">
+<article class="room" style="--gold:#ffc93c">
+<div class="room-media">
+<img src="images/v1.jpg" alt="Комната v1 — Безумный покер" loading="eager">
+<div class="media-scan"></div><span class="ver">v1</span>
+</div>
+<div class="room-body">
+<h3>«БЕЗУМНЫЙ ПОКЕР»</h3>
+<p class="tag">Классика, которая сошла с ума. Пять раундов. Петух крадёт банк. Правила плачут.</p>
+<div class="stats">
+<div class="stat"><small>ИГРОКОВ</small><b>42</b></div>
+<div class="stat"><small>СТАВКИ</small><b>5 / 10</b></div>
+</div>
+<a class="enter" href="https://mad-poker.github.io/v1/" target="_blank" rel="noopener">ВОЙТИ В КОМНАТУ →</a>
+</div>
+</article>
+<article class="room" style="--gold:#25e7ff">
+<div class="room-media">
+<img src="images/v2.jpg" alt="Комната v2 — Петушиная лихорадка" loading="eager">
+<div class="media-scan"></div><span class="ver">v2</span>
+</div>
+<div class="room-body">
+<h3>«ПЕТУШИНАЯ ЛИХОРАДКА»</h3>
+<p class="tag">Неон, хомяк-аналитик, курица. Хаос-метр растёт. Долг картошке — вечен.</p>
+<div class="stats">
+<div class="stat"><small>ИГРОКОВ</small><b>38</b></div>
+<div class="stat"><small>СТАВКИ</small><b>10 / 25</b></div>
+</div>
+<a class="enter" href="https://mad-poker.github.io/v2/" target="_blank" rel="noopener">ВОЙТИ В КОМНАТУ →</a>
+</div>
+</article>
+<article class="room" style="--gold:#ff2e88">
+<div class="room-media">
+<img src="images/v3.jpg" alt="Комната v3 — Стол сломан" loading="eager">
+<div class="media-scan"></div><span class="ver">v3</span>
+</div>
+<div class="room-body">
+<h3>«СТОЛ СЛОМАН»</h3>
+<p class="tag">Стол сломан, карты живые, мозги в кашу. CRT, глич, неон. Ты поддерживаешь дилера.</p>
+<div class="stats">
+<div class="stat"><small>ИГРОКОВ</small><b>27</b></div>
+<div class="stat"><small>СТАВКИ</small><b>∞ / ∞</b></div>
+</div>
+<a class="enter" href="https://mad-poker.github.io/v3/" target="_blank" rel="noopener">ВОЙТИ В КОМНАТУ →</a>
+</div>
+</article>
+<article class="room" style="--gold:#58e07c">
+<div class="room-media">
+<img src="images/v4.jpg" alt="Комната v4 — Стол сломан но играем" loading="eager">
+<div class="media-scan"></div><span class="ver">v4</span>
+</div>
+<div class="room-body">
+<h3>«СТОЛ СЛОМАН, НО ИГРАЕМ»</h3>
+<p class="tag">Дилер держится. Карты живут своей жизнью. Долг картошке растёт быстрее банка.</p>
+<div class="stats">
+<div class="stat"><small>ИГРОКОВ</small><b>19</b></div>
+<div class="stat"><small>СТАВКИ</small><b>1 / 2</b></div>
+</div>
+<a class="enter" href="https://mad-poker.github.io/v4/" target="_blank" rel="noopener">ВОЙТИ В КОМНАТУ →</a>
+</div>
+</article>
+</section>
+</main>
+<footer>
+© 13-й месяц, год ∞ · БЕЗУМНЫЙ ПОКЕР · КУКАРЕКУ · все права украдены
+</footer>
+</body>
+</html>
